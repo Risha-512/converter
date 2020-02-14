@@ -29,429 +29,453 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button17 = new System.Windows.Forms.Button();
-            this.button18 = new System.Windows.Forms.Button();
-            this.button19 = new System.Windows.Forms.Button();
-            this.button20 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.trackBar2 = new System.Windows.Forms.TrackBar();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize) (this.trackBar2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize) (this.trackBar1)).BeginInit();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.trackBar2 = new System.Windows.Forms.TrackBar();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.one = new System.Windows.Forms.Button();
+            this.two = new System.Windows.Forms.Button();
+            this.three = new System.Windows.Forms.Button();
+            this.four = new System.Windows.Forms.Button();
+            this.five = new System.Windows.Forms.Button();
+            this.six = new System.Windows.Forms.Button();
+            this.seven = new System.Windows.Forms.Button();
+            this.eight = new System.Windows.Forms.Button();
+            this.nine = new System.Windows.Forms.Button();
+            this.zero = new System.Windows.Forms.Button();
+            this.A = new System.Windows.Forms.Button();
+            this.B = new System.Windows.Forms.Button();
+            this.C = new System.Windows.Forms.Button();
+            this.D = new System.Windows.Forms.Button();
+            this.E = new System.Windows.Forms.Button();
+            this.F = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.point = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
             this.SuspendLayout();
-            // 
-            // button17
-            // 
-            this.button17.Location = new System.Drawing.Point(384, 500);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(117, 34);
-            this.button17.TabIndex = 57;
-            this.button17.Text = "SomeBtn3";
-            this.button17.UseVisualStyleBackColor = true;
-            this.button17.UseWaitCursor = true;
-            this.button17.Click += new System.EventHandler(this.button17_Click);
-            // 
-            // button18
-            // 
-            this.button18.Location = new System.Drawing.Point(261, 500);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(117, 34);
-            this.button18.TabIndex = 56;
-            this.button18.Text = "SomeBtn2";
-            this.button18.UseVisualStyleBackColor = true;
-            this.button18.UseWaitCursor = true;
-            this.button18.Click += new System.EventHandler(this.button18_Click);
-            // 
-            // button19
-            // 
-            this.button19.Location = new System.Drawing.Point(139, 500);
-            this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(117, 34);
-            this.button19.TabIndex = 55;
-            this.button19.Text = "SomeBtn1";
-            this.button19.UseVisualStyleBackColor = true;
-            this.button19.UseWaitCursor = true;
-            this.button19.Click += new System.EventHandler(this.button19_Click);
-            // 
-            // button20
-            // 
-            this.button20.Font = new System.Drawing.Font("Segoe UI", 9.163636F, System.Drawing.FontStyle.Bold,
-                System.Drawing.GraphicsUnit.Point, ((byte) (204)));
-            this.button20.Location = new System.Drawing.Point(15, 500);
-            this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(117, 34);
-            this.button20.TabIndex = 54;
-            this.button20.Text = ".";
-            this.button20.UseVisualStyleBackColor = true;
-            this.button20.UseWaitCursor = true;
-            this.button20.Click += new System.EventHandler(this.button20_Click);
-            // 
-            // button13
-            // 
-            this.button13.Location = new System.Drawing.Point(384, 460);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(117, 34);
-            this.button13.TabIndex = 53;
-            this.button13.Text = "F";
-            this.button13.UseVisualStyleBackColor = true;
-            this.button13.UseWaitCursor = true;
-            this.button13.Click += new System.EventHandler(this.button13_Click);
-            // 
-            // button14
-            // 
-            this.button14.Location = new System.Drawing.Point(261, 460);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(117, 34);
-            this.button14.TabIndex = 52;
-            this.button14.Text = "E";
-            this.button14.UseVisualStyleBackColor = true;
-            this.button14.UseWaitCursor = true;
-            this.button14.Click += new System.EventHandler(this.button14_Click);
-            // 
-            // button15
-            // 
-            this.button15.Location = new System.Drawing.Point(139, 460);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(117, 34);
-            this.button15.TabIndex = 51;
-            this.button15.Text = "D";
-            this.button15.UseVisualStyleBackColor = true;
-            this.button15.UseWaitCursor = true;
-            this.button15.Click += new System.EventHandler(this.button15_Click);
-            // 
-            // button16
-            // 
-            this.button16.Location = new System.Drawing.Point(15, 460);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(117, 34);
-            this.button16.TabIndex = 50;
-            this.button16.Text = "C";
-            this.button16.UseVisualStyleBackColor = true;
-            this.button16.UseWaitCursor = true;
-            this.button16.Click += new System.EventHandler(this.button16_Click);
-            // 
-            // button9
-            // 
-            this.button9.Location = new System.Drawing.Point(384, 421);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(117, 34);
-            this.button9.TabIndex = 49;
-            this.button9.Text = "B";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.UseWaitCursor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
-            // 
-            // button10
-            // 
-            this.button10.Location = new System.Drawing.Point(261, 421);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(117, 34);
-            this.button10.TabIndex = 48;
-            this.button10.Text = "A";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.UseWaitCursor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
-            // 
-            // button11
-            // 
-            this.button11.Location = new System.Drawing.Point(139, 421);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(117, 34);
-            this.button11.TabIndex = 47;
-            this.button11.Text = "0";
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.UseWaitCursor = true;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
-            // 
-            // button12
-            // 
-            this.button12.Location = new System.Drawing.Point(15, 421);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(117, 34);
-            this.button12.TabIndex = 46;
-            this.button12.Text = "9";
-            this.button12.UseVisualStyleBackColor = true;
-            this.button12.UseWaitCursor = true;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(384, 380);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(117, 34);
-            this.button5.TabIndex = 45;
-            this.button5.Text = "8";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.UseWaitCursor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(261, 380);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(117, 34);
-            this.button6.TabIndex = 44;
-            this.button6.Text = "7";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.UseWaitCursor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(139, 380);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(117, 34);
-            this.button7.TabIndex = 43;
-            this.button7.Text = "6";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.UseWaitCursor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(15, 380);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(117, 34);
-            this.button8.TabIndex = 42;
-            this.button8.Text = "5";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.UseWaitCursor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(384, 340);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(117, 34);
-            this.button4.TabIndex = 41;
-            this.button4.Text = "4";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.UseWaitCursor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(261, 340);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(117, 34);
-            this.button3.TabIndex = 40;
-            this.button3.Text = "3";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.UseWaitCursor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(139, 340);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(117, 34);
-            this.button2.TabIndex = 39;
-            this.button2.Text = "2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.UseWaitCursor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(15, 340);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(117, 34);
-            this.button1.TabIndex = 38;
-            this.button1.Text = "1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.UseWaitCursor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label4
-            // 
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 9.163636F, System.Drawing.FontStyle.Regular,
-                System.Drawing.GraphicsUnit.Point, ((byte) (204)));
-            this.label4.Location = new System.Drawing.Point(12, 234);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(489, 31);
-            this.label4.TabIndex = 37;
-            this.label4.Text = "Result";
-            this.label4.UseWaitCursor = true;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(13, 267);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(488, 26);
-            this.textBox2.TabIndex = 36;
-            this.textBox2.UseWaitCursor = true;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
-            // 
-            // label3
-            // 
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.163636F, System.Drawing.FontStyle.Regular,
-                System.Drawing.GraphicsUnit.Point, ((byte) (204)));
-            this.label3.Location = new System.Drawing.Point(12, 41);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(489, 31);
-            this.label3.TabIndex = 35;
-            this.label3.Text = "Enter the number to convert";
-            this.label3.UseWaitCursor = true;
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 9.163636F, System.Drawing.FontStyle.Regular,
-                System.Drawing.GraphicsUnit.Point, ((byte) (204)));
-            this.label2.Location = new System.Drawing.Point(281, 130);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(220, 34);
-            this.label2.TabIndex = 34;
-            this.label2.Text = "Resulting number system";
-            this.label2.UseWaitCursor = true;
-            // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.163636F, System.Drawing.FontStyle.Regular,
-                System.Drawing.GraphicsUnit.Point, ((byte) (204)));
-            this.label1.Location = new System.Drawing.Point(12, 130);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(220, 34);
-            this.label1.TabIndex = 33;
-            this.label1.Text = "Original number system";
-            this.label1.UseWaitCursor = true;
-            // 
-            // trackBar2
-            // 
-            this.trackBar2.Location = new System.Drawing.Point(281, 166);
-            this.trackBar2.Maximum = 16;
-            this.trackBar2.Minimum = 2;
-            this.trackBar2.Name = "trackBar2";
-            this.trackBar2.Size = new System.Drawing.Size(220, 50);
-            this.trackBar2.TabIndex = 32;
-            this.trackBar2.UseWaitCursor = true;
-            this.trackBar2.Value = 2;
-            this.trackBar2.Scroll += new System.EventHandler(this.trackBar2_Scroll);
-            // 
-            // trackBar1
-            // 
-            this.trackBar1.Location = new System.Drawing.Point(12, 166);
-            this.trackBar1.Maximum = 16;
-            this.trackBar1.Minimum = 2;
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(220, 50);
-            this.trackBar1.TabIndex = 31;
-            this.trackBar1.UseWaitCursor = true;
-            this.trackBar1.Value = 2;
-            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(12, 75);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(488, 26);
-            this.textBox1.TabIndex = 30;
-            this.textBox1.UseWaitCursor = true;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // menuStrip1
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(18, 18);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[]
-                {this.toolStripMenuItem1, this.toolStripMenuItem2, this.toolStripMenuItem3});
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.toolStripMenuItem2,
+            this.toolStripMenuItem3});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 1, 0, 1);
-            this.menuStrip1.Size = new System.Drawing.Size(512, 25);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
+            this.menuStrip1.Size = new System.Drawing.Size(408, 25);
             this.menuStrip1.TabIndex = 29;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.UseWaitCursor = true;
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(42, 23);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(44, 23);
             this.toolStripMenuItem1.Text = "exit";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(63, 23);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(65, 23);
             this.toolStripMenuItem2.Text = "history";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(57, 23);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(59, 23);
             this.toolStripMenuItem3.Text = "about";
             this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.AutoSize = true;
+            this.tableLayoutPanel1.ColumnCount = 4;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.textBox1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 2, 3);
+            this.tableLayoutPanel1.Controls.Add(this.trackBar1, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.trackBar2, 2, 4);
+            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 6);
+            this.tableLayoutPanel1.Controls.Add(this.textBox2, 0, 7);
+            this.tableLayoutPanel1.Controls.Add(this.one, 0, 9);
+            this.tableLayoutPanel1.Controls.Add(this.two, 1, 9);
+            this.tableLayoutPanel1.Controls.Add(this.three, 2, 9);
+            this.tableLayoutPanel1.Controls.Add(this.four, 3, 9);
+            this.tableLayoutPanel1.Controls.Add(this.five, 0, 10);
+            this.tableLayoutPanel1.Controls.Add(this.six, 1, 10);
+            this.tableLayoutPanel1.Controls.Add(this.seven, 2, 10);
+            this.tableLayoutPanel1.Controls.Add(this.eight, 3, 10);
+            this.tableLayoutPanel1.Controls.Add(this.nine, 0, 11);
+            this.tableLayoutPanel1.Controls.Add(this.zero, 1, 11);
+            this.tableLayoutPanel1.Controls.Add(this.A, 2, 11);
+            this.tableLayoutPanel1.Controls.Add(this.B, 3, 11);
+            this.tableLayoutPanel1.Controls.Add(this.C, 0, 12);
+            this.tableLayoutPanel1.Controls.Add(this.D, 1, 12);
+            this.tableLayoutPanel1.Controls.Add(this.E, 2, 12);
+            this.tableLayoutPanel1.Controls.Add(this.F, 3, 12);
+            this.tableLayoutPanel1.Controls.Add(this.point, 0, 13);
+            this.tableLayoutPanel1.Controls.Add(this.button1, 1, 13);
+            this.tableLayoutPanel1.Controls.Add(this.button2, 2, 13);
+            this.tableLayoutPanel1.Controls.Add(this.button3, 3, 13);
+            this.tableLayoutPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 28);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 14;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(384, 373);
+            this.tableLayoutPanel1.TabIndex = 30;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.label1, 4);
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(378, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Enter the number to convert";
+            // 
+            // textBox1
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.textBox1, 4);
+            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox1.Location = new System.Drawing.Point(3, 20);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(378, 20);
+            this.textBox1.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.label2, 2);
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(3, 58);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(186, 17);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Original number system";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.label3, 2);
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(195, 58);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(186, 17);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Resulting number system";
+            // 
+            // trackBar1
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.trackBar1, 2);
+            this.trackBar1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.trackBar1.Location = new System.Drawing.Point(3, 78);
+            this.trackBar1.Maximum = 16;
+            this.trackBar1.Minimum = 2;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(186, 50);
+            this.trackBar1.TabIndex = 4;
+            this.trackBar1.Value = 2;
+            // 
+            // trackBar2
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.trackBar2, 2);
+            this.trackBar2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.trackBar2.Location = new System.Drawing.Point(195, 78);
+            this.trackBar2.Maximum = 16;
+            this.trackBar2.Minimum = 2;
+            this.trackBar2.Name = "trackBar2";
+            this.trackBar2.Size = new System.Drawing.Size(186, 50);
+            this.trackBar2.TabIndex = 5;
+            this.trackBar2.Value = 2;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.label4, 4);
+            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(3, 146);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(378, 17);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Result";
+            // 
+            // textBox2
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.textBox2, 4);
+            this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox2.Location = new System.Drawing.Point(3, 166);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(378, 20);
+            this.textBox2.TabIndex = 7;
+            // 
+            // one
+            // 
+            this.one.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.one.Location = new System.Drawing.Point(3, 217);
+            this.one.Name = "one";
+            this.one.Size = new System.Drawing.Size(90, 24);
+            this.one.TabIndex = 8;
+            this.one.Text = "1";
+            this.one.UseVisualStyleBackColor = true;
+            // 
+            // two
+            // 
+            this.two.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.two.Location = new System.Drawing.Point(99, 217);
+            this.two.Name = "two";
+            this.two.Size = new System.Drawing.Size(90, 24);
+            this.two.TabIndex = 9;
+            this.two.Text = "2";
+            this.two.UseVisualStyleBackColor = true;
+            // 
+            // three
+            // 
+            this.three.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.three.Location = new System.Drawing.Point(195, 217);
+            this.three.Name = "three";
+            this.three.Size = new System.Drawing.Size(90, 24);
+            this.three.TabIndex = 10;
+            this.three.Text = "3";
+            this.three.UseVisualStyleBackColor = true;
+            // 
+            // four
+            // 
+            this.four.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.four.Location = new System.Drawing.Point(291, 217);
+            this.four.Name = "four";
+            this.four.Size = new System.Drawing.Size(90, 24);
+            this.four.TabIndex = 11;
+            this.four.Text = "4";
+            this.four.UseVisualStyleBackColor = true;
+            // 
+            // five
+            // 
+            this.five.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.five.Location = new System.Drawing.Point(3, 247);
+            this.five.Name = "five";
+            this.five.Size = new System.Drawing.Size(90, 24);
+            this.five.TabIndex = 12;
+            this.five.Text = "5";
+            this.five.UseVisualStyleBackColor = true;
+            // 
+            // six
+            // 
+            this.six.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.six.Location = new System.Drawing.Point(99, 247);
+            this.six.Name = "six";
+            this.six.Size = new System.Drawing.Size(90, 24);
+            this.six.TabIndex = 13;
+            this.six.Text = "6";
+            this.six.UseVisualStyleBackColor = true;
+            // 
+            // seven
+            // 
+            this.seven.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.seven.Location = new System.Drawing.Point(195, 247);
+            this.seven.Name = "seven";
+            this.seven.Size = new System.Drawing.Size(90, 24);
+            this.seven.TabIndex = 14;
+            this.seven.Text = "7";
+            this.seven.UseVisualStyleBackColor = true;
+            // 
+            // eight
+            // 
+            this.eight.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.eight.Location = new System.Drawing.Point(291, 247);
+            this.eight.Name = "eight";
+            this.eight.Size = new System.Drawing.Size(90, 24);
+            this.eight.TabIndex = 15;
+            this.eight.Text = "8";
+            this.eight.UseVisualStyleBackColor = true;
+            // 
+            // nine
+            // 
+            this.nine.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.nine.Location = new System.Drawing.Point(3, 277);
+            this.nine.Name = "nine";
+            this.nine.Size = new System.Drawing.Size(90, 24);
+            this.nine.TabIndex = 16;
+            this.nine.Text = "9";
+            this.nine.UseVisualStyleBackColor = true;
+            // 
+            // zero
+            // 
+            this.zero.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.zero.Location = new System.Drawing.Point(99, 277);
+            this.zero.Name = "zero";
+            this.zero.Size = new System.Drawing.Size(90, 24);
+            this.zero.TabIndex = 17;
+            this.zero.Text = "0";
+            this.zero.UseVisualStyleBackColor = true;
+            // 
+            // A
+            // 
+            this.A.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.A.Location = new System.Drawing.Point(195, 277);
+            this.A.Name = "A";
+            this.A.Size = new System.Drawing.Size(90, 24);
+            this.A.TabIndex = 18;
+            this.A.Text = "A";
+            this.A.UseVisualStyleBackColor = true;
+            // 
+            // B
+            // 
+            this.B.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.B.Location = new System.Drawing.Point(291, 277);
+            this.B.Name = "B";
+            this.B.Size = new System.Drawing.Size(90, 24);
+            this.B.TabIndex = 19;
+            this.B.Text = "B";
+            this.B.UseVisualStyleBackColor = true;
+            // 
+            // C
+            // 
+            this.C.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.C.Location = new System.Drawing.Point(3, 307);
+            this.C.Name = "C";
+            this.C.Size = new System.Drawing.Size(90, 24);
+            this.C.TabIndex = 20;
+            this.C.Text = "C";
+            this.C.UseVisualStyleBackColor = true;
+            // 
+            // D
+            // 
+            this.D.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.D.Location = new System.Drawing.Point(99, 307);
+            this.D.Name = "D";
+            this.D.Size = new System.Drawing.Size(90, 24);
+            this.D.TabIndex = 21;
+            this.D.Text = "D";
+            this.D.UseVisualStyleBackColor = true;
+            // 
+            // E
+            // 
+            this.E.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.E.Location = new System.Drawing.Point(195, 307);
+            this.E.Name = "E";
+            this.E.Size = new System.Drawing.Size(90, 24);
+            this.E.TabIndex = 22;
+            this.E.Text = "E";
+            this.E.UseVisualStyleBackColor = true;
+            // 
+            // F
+            // 
+            this.F.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.F.Location = new System.Drawing.Point(291, 307);
+            this.F.Name = "F";
+            this.F.Size = new System.Drawing.Size(90, 24);
+            this.F.TabIndex = 23;
+            this.F.Text = "F";
+            this.F.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button3.Location = new System.Drawing.Point(291, 337);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(90, 27);
+            this.button3.TabIndex = 27;
+            this.button3.Text = "SomeBtn3";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button2.Location = new System.Drawing.Point(195, 337);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(90, 27);
+            this.button2.TabIndex = 26;
+            this.button2.Text = "SomeBtn2";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button1.Location = new System.Drawing.Point(99, 337);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(90, 27);
+            this.button1.TabIndex = 25;
+            this.button1.Text = "SomeBtn1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // point
+            // 
+            this.point.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.point.Location = new System.Drawing.Point(3, 337);
+            this.point.Name = "point";
+            this.point.Size = new System.Drawing.Size(90, 27);
+            this.point.TabIndex = 24;
+            this.point.Text = ".";
+            this.point.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(512, 552);
-            this.Controls.Add(this.button17);
-            this.Controls.Add(this.button18);
-            this.Controls.Add(this.button19);
-            this.Controls.Add(this.button20);
-            this.Controls.Add(this.button13);
-            this.Controls.Add(this.button14);
-            this.Controls.Add(this.button15);
-            this.Controls.Add(this.button16);
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.button10);
-            this.Controls.Add(this.button11);
-            this.Controls.Add(this.button12);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.trackBar2);
-            this.Controls.Add(this.trackBar1);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(408, 413);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.menuStrip1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize) (this.trackBar2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize) (this.trackBar1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
@@ -460,33 +484,34 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TrackBar trackBar1;
-        private System.Windows.Forms.TrackBar trackBar2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.TrackBar trackBar2;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button one;
+        private System.Windows.Forms.Button two;
+        private System.Windows.Forms.Button three;
+        private System.Windows.Forms.Button four;
+        private System.Windows.Forms.Button five;
+        private System.Windows.Forms.Button six;
+        private System.Windows.Forms.Button seven;
+        private System.Windows.Forms.Button eight;
+        private System.Windows.Forms.Button nine;
+        private System.Windows.Forms.Button zero;
+        private System.Windows.Forms.Button A;
+        private System.Windows.Forms.Button B;
+        private System.Windows.Forms.Button C;
+        private System.Windows.Forms.Button D;
+        private System.Windows.Forms.Button E;
+        private System.Windows.Forms.Button F;
+        private System.Windows.Forms.Button point;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button16;
-        private System.Windows.Forms.Button button15;
-        private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button button20;
-        private System.Windows.Forms.Button button19;
-        private System.Windows.Forms.Button button18;
-        private System.Windows.Forms.Button button17;
     }
 }
