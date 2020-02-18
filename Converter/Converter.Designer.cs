@@ -31,9 +31,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Converter));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.historyMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxOriginal = new System.Windows.Forms.TextBox();
@@ -61,7 +61,7 @@
             this.FBtn = new System.Windows.Forms.Button();
             this.pointBtn = new System.Windows.Forms.Button();
             this.convertBtn = new System.Windows.Forms.Button();
-            this.backspace = new System.Windows.Forms.Button();
+            this.eraseBtn = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarOriginal)).BeginInit();
@@ -72,37 +72,37 @@
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(18, 18);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.toolStripMenuItem2,
-            this.toolStripMenuItem3});
+            this.exitMenuItem,
+            this.historyMenuItem,
+            this.aboutMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
-            this.menuStrip1.Size = new System.Drawing.Size(408, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(408, 25);
             this.menuStrip1.TabIndex = 29;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.UseWaitCursor = true;
             // 
-            // toolStripMenuItem1
+            // exitMenuItem
             // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(44, 26);
-            this.toolStripMenuItem1.Text = "exit";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.exitMenuItem_Click);
+            this.exitMenuItem.Name = "exitMenuItem";
+            this.exitMenuItem.Size = new System.Drawing.Size(44, 23);
+            this.exitMenuItem.Text = "exit";
+            this.exitMenuItem.Click += new System.EventHandler(this.exitMenuItem_Click);
             // 
-            // toolStripMenuItem2
+            // historyMenuItem
             // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(65, 26);
-            this.toolStripMenuItem2.Text = "history";
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.historyMenuItem_Click);
+            this.historyMenuItem.Name = "historyMenuItem";
+            this.historyMenuItem.Size = new System.Drawing.Size(65, 23);
+            this.historyMenuItem.Text = "history";
+            this.historyMenuItem.Click += new System.EventHandler(this.historyMenuItem_Click);
             // 
-            // toolStripMenuItem3
+            // aboutMenuItem
             // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(59, 26);
-            this.toolStripMenuItem3.Text = "about";
-            this.toolStripMenuItem3.Click += new System.EventHandler(this.aboutMenuItem_Click);
+            this.aboutMenuItem.Name = "aboutMenuItem";
+            this.aboutMenuItem.Size = new System.Drawing.Size(59, 23);
+            this.aboutMenuItem.Text = "about";
+            this.aboutMenuItem.Click += new System.EventHandler(this.aboutMenuItem_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -141,7 +141,7 @@
             this.tableLayoutPanel1.Controls.Add(this.FBtn, 3, 9);
             this.tableLayoutPanel1.Controls.Add(this.pointBtn, 0, 10);
             this.tableLayoutPanel1.Controls.Add(this.convertBtn, 1, 10);
-            this.tableLayoutPanel1.Controls.Add(this.backspace, 3, 10);
+            this.tableLayoutPanel1.Controls.Add(this.eraseBtn, 3, 10);
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.854546F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 32);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -184,7 +184,7 @@
             this.textBoxOriginal.Size = new System.Drawing.Size(378, 23);
             this.textBoxOriginal.TabIndex = 1;
             this.textBoxOriginal.TextChanged += new System.EventHandler(this.textBoxOriginal_TextChanged);
-            this.textBoxOriginal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkEnteredSymbols);
+            this.textBoxOriginal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnteredSymbols);
             // 
             // label2
             // 
@@ -466,18 +466,18 @@
             this.convertBtn.Text = "Convert";
             this.convertBtn.UseVisualStyleBackColor = true;
             // 
-            // backspace
+            // eraseBtn
             // 
-            this.backspace.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.backspace.Enabled = false;
-            this.backspace.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.backspace.Location = new System.Drawing.Point(291, 294);
-            this.backspace.Name = "backspace";
-            this.backspace.Size = new System.Drawing.Size(90, 24);
-            this.backspace.TabIndex = 27;
-            this.backspace.Text = "<--";
-            this.backspace.UseVisualStyleBackColor = true;
-            this.backspace.Click += new System.EventHandler(this.backspace_Click);
+            this.eraseBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.eraseBtn.Enabled = false;
+            this.eraseBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.eraseBtn.Location = new System.Drawing.Point(291, 294);
+            this.eraseBtn.Name = "eraseBtn";
+            this.eraseBtn.Size = new System.Drawing.Size(90, 24);
+            this.eraseBtn.TabIndex = 27;
+            this.eraseBtn.Text = "<--";
+            this.eraseBtn.UseVisualStyleBackColor = true;
+            this.eraseBtn.Click += new System.EventHandler(this.eraseBtn_Click);
             // 
             // Converter
             // 
@@ -505,9 +505,9 @@
 
         #endregion
 
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem aboutMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem historyMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label1;
@@ -534,7 +534,7 @@
         private System.Windows.Forms.Button threeBtn;
         private System.Windows.Forms.Button pointBtn;
         private System.Windows.Forms.Button convertBtn;
-        private System.Windows.Forms.Button backspace;
+        private System.Windows.Forms.Button eraseBtn;
         private System.Windows.Forms.Button eightBtn;
         private System.Windows.Forms.Button nineBtn;
     }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace Converter
 {
@@ -18,7 +19,7 @@ namespace Converter
 
             this.label2.Text += trackBarOriginal.Value.ToString();
             this.label3.Text += trackBarResult.Value.ToString();
-            enableNumberButtons();
+            EnableNumberButtons();
         }
 
         private void exitMenuItem_Click(object sender, EventArgs e)
@@ -42,39 +43,25 @@ namespace Converter
             //throw new System.NotImplementedException();
         }
 
+        private string AppendNumberSystemToLabel(string str)
+        {
+            str = str.Remove(str.Length - (str[str.Length - 2] == '1' ? 2 : 1));
+            return str + this.trackBarOriginal.Value.ToString();
+        }
+
         private void originalNumberSystem_Changed(object sender, EventArgs e)
         {
             this.textBoxOriginal.Text = "";
-
-            enableNumberButtons();
-
-            if (this.label2.Text[this.label2.Text.Length - 2] == '1')
-            {
-                this.label2.Text = this.label2.Text.Remove(this.label2.Text.Length - 2);
-            }
-            else
-            {
-                this.label2.Text = this.label2.Text.Remove(this.label2.Text.Length - 1);
-            }
-
-            this.label2.Text += this.trackBarOriginal.Value.ToString();
+            EnableNumberButtons();
+            this.label2.Text = AppendNumberSystemToLabel(this.label2.Text);
         }
 
         private void resultlNumberSystem_Changed(object sender, EventArgs e)
         {
-            if (this.label3.Text[this.label3.Text.Length - 2] == '1')
-            {
-                this.label3.Text = this.label3.Text.Remove(this.label3.Text.Length - 2);
-            }
-            else
-            {
-                this.label3.Text = this.label3.Text.Remove(this.label3.Text.Length - 1);
-            }
-
-            this.label3.Text += this.trackBarResult.Value.ToString();
+            this.label3.Text = AppendNumberSystemToLabel(this.label3.Text);
         }
 
-        private void enableNumberButtons()
+        private void EnableNumberButtons()
         {
             int numberSystemValue = this.trackBarOriginal.Value;
 
@@ -98,7 +85,7 @@ namespace Converter
         private void textBoxOriginal_TextChanged(object sender, EventArgs e)
         {
             this.convertBtn.Enabled = this.textBoxOriginal.Text != "";
-            this.backspace.Enabled = this.convertBtn.Enabled;
+            this.eraseBtn.Enabled = this.convertBtn.Enabled;
             this.pointBtn.Enabled = this.textBoxOriginal.Text != "" && this.textBoxOriginal.Text.IndexOf('.') == -1;
             this.textBoxOriginal.Focus();
             this.textBoxOriginal.SelectionStart = this.textBoxOriginal.Text.Length;
@@ -189,12 +176,12 @@ namespace Converter
             this.textBoxOriginal.Text += '.';
         }
 
-        private void backspace_Click(object sender, EventArgs e)
+        private void eraseBtn_Click(object sender, EventArgs e)
         {
             this.textBoxOriginal.Text = this.textBoxOriginal.Text.Remove(this.textBoxOriginal.Text.Length - 1);
         }
 
-        private void checkEnteredSymbols(object sender, KeyPressEventArgs e)
+        private void CheckEnteredSymbols(object sender, KeyPressEventArgs e)
         {
             int numberSystemValue = this.trackBarOriginal.Value;
 
@@ -206,26 +193,27 @@ namespace Converter
 
             if (e.KeyChar == '.')
             {
-                if (this.textBoxOriginal.Text.IndexOf('.') != -1 || this.textBoxOriginal.Text == "")
+                // string shouldn't be empty or contain point
+                if (Regex.IsMatch(this.textBoxOriginal.Text, @"^\s*$|\."))
                     e.KeyChar = '\0';
                 return;
             }
 
             // 'a'-'f' to 'A'-'F' 
-            // 'a' = 97, 'f' = 102
-            if (e.KeyChar > 96 && e.KeyChar < 103)
+            if (Regex.IsMatch(e.KeyChar.ToString(), @"[a-f]") )
             {
                 e.KeyChar = Convert.ToChar(e.KeyChar - 32);
             }
+
             // allow only '0'-'9' and 'A'-'F' symbols
-            // '0' = 48, '9' = 57, 'A' = 65, 'F' = 70, '.' = 46
-            else if (e.KeyChar < 48 || e.KeyChar > 57 && e.KeyChar < 65 || e.KeyChar > 70)
+            else if (Regex.IsMatch(e.KeyChar.ToString(), @"[^0-9A-F]"))
             {
                 e.KeyChar = '\0';
                 return;
             }
 
             // check correspondence of the entered symbol with original number system
+            // '0' = 48, '9' = 57, 'A' = 65, 'F' = 70
             if (numberSystemValue <= 10 && e.KeyChar > 47 + numberSystemValue ||
                 numberSystemValue > 10 && e.KeyChar > 54 + numberSystemValue)
             {
