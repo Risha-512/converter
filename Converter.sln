@@ -1,6 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Converter", "Converter\Converter.csproj", "{9B8C769A-EA8D-469D-89C3-B62612A69F94}"
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interface", "Converter\Interface.csproj", "{9B8C769A-EA8D-469D-89C3-B62612A69F94}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary", "ClassLibrary\ClassLibrary.csproj", "{B8F35F0A-0406-48B0-BAAE-E1B48F374DCF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,5 +17,15 @@ Global
 		{9B8C769A-EA8D-469D-89C3-B62612A69F94}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B8C769A-EA8D-469D-89C3-B62612A69F94}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B8C769A-EA8D-469D-89C3-B62612A69F94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8F35F0A-0406-48B0-BAAE-E1B48F374DCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8F35F0A-0406-48B0-BAAE-E1B48F374DCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8F35F0A-0406-48B0-BAAE-E1B48F374DCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8F35F0A-0406-48B0-BAAE-E1B48F374DCF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C9DCB4EB-F6EC-45CD-A18D-AC1460237CF8}
 	EndGlobalSection
 EndGlobal
