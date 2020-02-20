@@ -36,17 +36,21 @@ namespace Converter
 
         private void History_Load(object sender, EventArgs e)
         {
+
             BinaryReader binReader;
 
             if (File.Exists(path))
             {
-                string fileLine;
                 using (binReader = new BinaryReader(new FileStream(path, FileMode.Open, FileAccess.Read)))
                 {
                     try
                     {
+                        var list = new List<string>();
+
                         for (int i = 1; binReader.BaseStream.Position != binReader.BaseStream.Length; i++)
-                            historyList.Text += $"{i}. {binReader.ReadString()}";
+                            list.Add($"{i}.\t{binReader.ReadString()}");
+
+                        historyList.DataSource = list;
                     }
                     catch { throw new Exception("History.bin: Can't read file"); }
                 }
@@ -57,7 +61,7 @@ namespace Converter
         {
             if (historyList.Text != "")
             {
-                historyList.Text = "";
+                historyList.DataSource = null;
                 BinaryWriter binWriter;
 
                 using (binWriter = new BinaryWriter(File.Open(path, FileMode.Truncate))) { }
