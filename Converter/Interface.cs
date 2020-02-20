@@ -17,27 +17,45 @@ namespace Converter
         public Interface()
         {
             InitializeComponent();
-            this.KeyDown += Interface_KeyDown;
-            this.label2.Text += trackBarOriginal.Value.ToString();
-            this.label3.Text += trackBarResult.Value.ToString();
+            KeyDown += Interface_KeyDown;
+            label2.Text += trackBarOriginal.Value.ToString();
+            label3.Text += trackBarResult.Value.ToString();
             EnableNumberButtons();
         }
 
         private void Interface_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyData == Keys.Back && textBoxOriginal.Text != String.Empty)
-                textBoxOriginal.Text = this.textBoxOriginal.Text.Remove(this.textBoxOriginal.Text.Length - 1);
-            if (e.KeyValue > 47 && e.KeyValue < 58 && trackBarOriginal.Value > e.KeyValue - 48)
-                textBoxOriginal.Text += e.KeyValue - 48;
-            if (e.KeyValue > 64 && e.KeyValue < 71 && trackBarOriginal.Value > e.KeyValue - 55)
-                textBoxOriginal.Text += e.KeyData;
-            if (e.KeyData == Keys.OemPeriod)
-                pointBtn_Click(this, null);
+            var selectionStart = textBoxOriginal.SelectionStart;
+
+            switch (e.KeyData)
+            {
+                case Keys key when (key >= Keys.D0 && key <= Keys.D9 && trackBarOriginal.Value > e.KeyValue - 48):
+                    textBoxOriginal.Text = textBoxOriginal.Text.Insert(selectionStart, (e.KeyValue - 48).ToString());
+                    textBoxOriginal.SelectionStart = selectionStart + 1;
+                    break;
+
+                case Keys key when (key >= Keys.A && key <= Keys.F && trackBarOriginal.Value > e.KeyValue - 55):
+                    textBoxOriginal.Text = textBoxOriginal.Text.Insert(selectionStart, key.ToString());
+                    textBoxOriginal.SelectionStart = selectionStart + 1;
+                    break;
+
+                case Keys.Back:
+                case Keys.Delete:
+                    eraseBtn_Click(this, null);
+                    break;
+
+                case Keys.OemPeriod:
+                    pointBtn_Click(this, null);
+                    break;
+
+                default:
+                    break;
+            }
         }
 
         private void exitMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void historyMenuItem_Click(object sender, EventArgs e)
@@ -45,10 +63,6 @@ namespace Converter
         }
 
         private void aboutMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void Interface_Load(object sender, EventArgs e)
         {
         }
 
@@ -60,77 +74,89 @@ namespace Converter
 
         private void originalNumberSystem_Changed(object sender, EventArgs e)
         {
-            this.textBoxOriginal.Text = "";
+            textBoxOriginal.Text = "";
             EnableNumberButtons();
-            this.label2.Text = AppendNumberToLabel(this.label2.Text, (sender as TrackBar).Value);
+            label2.Text = AppendNumberToLabel(label2.Text, (sender as TrackBar).Value);
         }
 
         private void resultlNumberSystem_Changed(object sender, EventArgs e)
         {
-            this.textBoxResult.Text = "";
-            this.label3.Text = AppendNumberToLabel(this.label3.Text, (sender as TrackBar).Value);
+            textBoxResult.Text = "";
+            label3.Text = AppendNumberToLabel(label3.Text, (sender as TrackBar).Value);
         }
 
         private void EnableNumberButtons()
         {
-            int numberSystemValue = this.trackBarOriginal.Value;
+            int numberSystemValue = trackBarOriginal.Value;
 
-            this.twoBtn.Enabled = numberSystemValue > 2;
-            this.threeBtn.Enabled = numberSystemValue > 3;
-            this.fourBtn.Enabled = numberSystemValue > 4;
-            this.fiveBtn.Enabled = numberSystemValue > 5;
-            this.sixBtn.Enabled = numberSystemValue > 6;
-            this.sevenBtn.Enabled = numberSystemValue > 7;
-            this.eightBtn.Enabled = numberSystemValue > 8;
-            this.nineBtn.Enabled = numberSystemValue > 9;
+            twoBtn.Enabled = numberSystemValue > 2;
+            threeBtn.Enabled = numberSystemValue > 3;
+            fourBtn.Enabled = numberSystemValue > 4;
+            fiveBtn.Enabled = numberSystemValue > 5;
+            sixBtn.Enabled = numberSystemValue > 6;
+            sevenBtn.Enabled = numberSystemValue > 7;
+            eightBtn.Enabled = numberSystemValue > 8;
+            nineBtn.Enabled = numberSystemValue > 9;
 
-            this.ABtn.Enabled = numberSystemValue > 10;
-            this.BBtn.Enabled = numberSystemValue > 11;
-            this.CBtn.Enabled = numberSystemValue > 12;
-            this.DBtn.Enabled = numberSystemValue > 13;
-            this.EBtn.Enabled = numberSystemValue > 14;
-            this.FBtn.Enabled = numberSystemValue > 15;
+            ABtn.Enabled = numberSystemValue > 10;
+            BBtn.Enabled = numberSystemValue > 11;
+            CBtn.Enabled = numberSystemValue > 12;
+            DBtn.Enabled = numberSystemValue > 13;
+            EBtn.Enabled = numberSystemValue > 14;
+            FBtn.Enabled = numberSystemValue > 15;
         }
 
         private void textBoxOriginal_TextChanged(object sender, EventArgs e)
         {
-            //(sender as TextBox).Focus();
-            //(sender as TextBox).SelectionStart = (sender as TextBox).Text.Length;
-
-            this.convertBtn.Enabled = (sender as TextBox).Text != "";
-            this.eraseBtn.Enabled = this.convertBtn.Enabled;
-            this.pointBtn.Enabled = !(sender as TextBox).Text.Contains('.');
+            convertBtn.Enabled = (sender as TextBox).Text != "";
+            eraseBtn.Enabled = convertBtn.Enabled;
+            pointBtn.Enabled = !(sender as TextBox).Text.Contains('.');
         }
 
         private void charBtn_Click(object sender, EventArgs e)
         {
-            this.textBoxOriginal.Text += (sender as Button).Text;
+            var selectionStart = textBoxOriginal.SelectionStart;
+            textBoxOriginal.Text = textBoxOriginal.Text.Insert(selectionStart, (sender as Button).Text);
+            textBoxOriginal.SelectionStart = selectionStart + 1;
         }
 
         private void pointBtn_Click(object sender, EventArgs e)
         {
-            if (textBoxOriginal.Text == String.Empty)
+            if (textBoxOriginal.Text == "")
+            {
                 textBoxOriginal.Text += "0.";
+                textBoxOriginal.SelectionStart = 2;
+            }
             else if (!textBoxOriginal.Text.Contains("."))
             {
-                textBoxOriginal.Text += ".";
+                var selectionStart = textBoxOriginal.SelectionStart;
+                textBoxOriginal.Text = textBoxOriginal.Text.Insert(selectionStart, 
+                    selectionStart == 0 ? "0." : ".");
+                textBoxOriginal.SelectionStart = selectionStart == 0 ? 2 : selectionStart + 1;
             }
         }
 
         private void eraseBtn_Click(object sender, EventArgs e)
         {
-            this.textBoxOriginal.Text = this.textBoxOriginal.Text.Remove(this.textBoxOriginal.Text.Length - 1);
+            var selectionStart = textBoxOriginal.SelectionStart;
+            if (textBoxOriginal.SelectedText == "" && textBoxOriginal.Text != "" && selectionStart != 0)
+            {
+                textBoxOriginal.Text = textBoxOriginal.Text.Remove(selectionStart - 1, 1);
+                textBoxOriginal.SelectionStart = selectionStart - 1;
+            }
+            else
+                textBoxOriginal.SelectedText = "";
         }
 
         private void convertBtn_Click(object sender, EventArgs e)
         {
             var result = Converter.Convert(
-                this.textBoxOriginal.Text,
-                this.trackBarOriginal.Value,
-                this.trackBarResult.Value
+                textBoxOriginal.Text,
+                trackBarOriginal.Value,
+                trackBarResult.Value
             );
 
-            this.textBoxResult.Text = result;
+            textBoxResult.Text = result;
         }
     }
 }

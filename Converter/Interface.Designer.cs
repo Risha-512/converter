@@ -78,7 +78,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
-            this.menuStrip1.Size = new System.Drawing.Size(408, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(408, 25);
             this.menuStrip1.TabIndex = 29;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.UseWaitCursor = true;
@@ -86,21 +86,21 @@
             // exitMenuItem
             // 
             this.exitMenuItem.Name = "exitMenuItem";
-            this.exitMenuItem.Size = new System.Drawing.Size(44, 26);
+            this.exitMenuItem.Size = new System.Drawing.Size(44, 23);
             this.exitMenuItem.Text = "exit";
             this.exitMenuItem.Click += new System.EventHandler(this.exitMenuItem_Click);
             // 
             // historyMenuItem
             // 
             this.historyMenuItem.Name = "historyMenuItem";
-            this.historyMenuItem.Size = new System.Drawing.Size(65, 26);
+            this.historyMenuItem.Size = new System.Drawing.Size(65, 23);
             this.historyMenuItem.Text = "history";
             this.historyMenuItem.Click += new System.EventHandler(this.historyMenuItem_Click);
             // 
             // aboutMenuItem
             // 
             this.aboutMenuItem.Name = "aboutMenuItem";
-            this.aboutMenuItem.Size = new System.Drawing.Size(59, 26);
+            this.aboutMenuItem.Size = new System.Drawing.Size(59, 23);
             this.aboutMenuItem.Text = "about";
             this.aboutMenuItem.Click += new System.EventHandler(this.aboutMenuItem_Click);
             // 
@@ -156,9 +156,8 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(384, 329);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(384, 321);
             this.tableLayoutPanel1.TabIndex = 30;
             // 
             // label1
@@ -446,7 +445,7 @@
             this.pointBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.854546F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.pointBtn.Location = new System.Drawing.Point(3, 294);
             this.pointBtn.Name = "pointBtn";
-            this.pointBtn.Size = new System.Drawing.Size(90, 32);
+            this.pointBtn.Size = new System.Drawing.Size(90, 24);
             this.pointBtn.TabIndex = 24;
             this.pointBtn.Text = ".";
             this.pointBtn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -461,7 +460,7 @@
             this.convertBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.convertBtn.Location = new System.Drawing.Point(99, 294);
             this.convertBtn.Name = "convertBtn";
-            this.convertBtn.Size = new System.Drawing.Size(186, 32);
+            this.convertBtn.Size = new System.Drawing.Size(186, 24);
             this.convertBtn.TabIndex = 25;
             this.convertBtn.Text = "Convert";
             this.convertBtn.UseVisualStyleBackColor = true;
@@ -474,7 +473,7 @@
             this.eraseBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.eraseBtn.Location = new System.Drawing.Point(291, 294);
             this.eraseBtn.Name = "eraseBtn";
-            this.eraseBtn.Size = new System.Drawing.Size(90, 32);
+            this.eraseBtn.Size = new System.Drawing.Size(90, 24);
             this.eraseBtn.TabIndex = 27;
             this.eraseBtn.Text = "<--";
             this.eraseBtn.UseVisualStyleBackColor = true;
@@ -493,7 +492,6 @@
             this.MaximizeBox = false;
             this.Name = "Interface";
             this.Text = "Converter";
-            this.Load += new System.EventHandler(this.Interface_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);

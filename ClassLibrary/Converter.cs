@@ -22,6 +22,9 @@ namespace Converter
         }
         static public string Convert(string data, int origNumBase, int resNumBase)
         {
+            if (origNumBase == resNumBase)
+                return data;
+
             var numSplit = data.Split('.');
 
             var numDec = 0;
@@ -41,7 +44,7 @@ namespace Converter
                     : Double.Parse("0," + numSplit[1]);
             }
 
-            return (numDec == 0 ? "0" : ConvertDecToOtherBase(numDec, resNumBase)) + 
+            return (numDec == 0 ? "0" : ConvertDecToOtherBase(numDec, resNumBase)) +
                 (fractNumDec == 0.0d ? "" : "." + ConvertFractionalToOtherBase(fractNumDec, resNumBase));
         }
 
