@@ -6,21 +6,66 @@ using System.Threading.Tasks;
 
 namespace Converter
 {
-    class Converter
+    public class Converter
     {
-        public string Convert(string data, int origNumSyst, int resNumSyst)
+        static private int IntPow(int x, uint pow)
         {
-            return "";
+            int ret = 1;
+            while (pow != 0)
+            {
+                if ((pow & 1) == 1)
+                    ret *= x;
+                x *= x;
+                pow >>= 1;
+            }
+            return ret;
+        }
+        static public string Convert(string data, int origNumBase, int resNumBase)
+        {
+            var numDec = origNumBase != 10
+                ? ConvertOtherBaseToDec(data, origNumBase)
+                : origNumBase;
+
+            var res = ConvertDecToOtherBase(numDec, resNumBase);
+
+            Console.WriteLine("num(dec): ", numDec);
+            Console.WriteLine("res: ", res);
+
+            return res;
         }
 
-        private int ConvertNumberToDec(string num)
+        static private int ConvertOtherBaseToDec(string numString, int numBase)
         {
-            return 0;
+            int n = numString.Length;
+            int decimalNumber = 0;
+     
+            for (int i = 0; i < n; i++)
+                decimalNumber += (
+                    numString[i] < 'A'
+                        ? numString[i] - '0'
+                        : numString[i] - 'A' + 10
+                    ) * IntPow(numBase, (uint)(n - i - 1));
+
+            return decimalNumber;
         }
 
-        private string ConvertDecimalNumber(int num, int numberSystem)
+        static private string ConvertDecToOtherBase(int num, int numBase)
         {
-            return "";
+            string resultString = "";
+            int result = num, remainder;
+
+            while (result != 0)
+            {
+                remainder = result % numBase;
+
+                resultString.Append<char>(remainder < 10 
+                    ? remainder.ToString()[0]
+                    : (remainder + 55).ToString()[0]);
+
+                result /= numBase;  
+            }
+
+            return resultString;
         }
     }
 }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 
+
 namespace Converter
 {
     public partial class Interface : Form
@@ -34,7 +35,6 @@ namespace Converter
         private void aboutMenuItem_Click(object sender, EventArgs e)
         {
         }
-
 
         private void Interface_Load(object sender, EventArgs e)
         {
@@ -91,8 +91,9 @@ namespace Converter
 
         private void charBtn_Click(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(this.textBoxOriginal.Text, @"^0{1}$") && (sender as Button).Text != ".")
+            if (this.textBoxOriginal.Text == "0" && (sender as Button).Text != ".")
                 return;
+
             if (this.textBoxOriginal.Text == "" && (sender as Button).Text == ".")
                 this.textBoxOriginal.Text += '0';
 
@@ -107,56 +108,48 @@ namespace Converter
         private void textBoxOriginal_KeyPress(object sender, KeyPressEventArgs e)
         {
             int numberSystemValue = this.trackBarOriginal.Value;
+            var textBox = (TextBox)sender;
 
-            // if backspace is pressed
-            if (e.KeyChar == 8)
-            {
-                return;
-            }
+            e.KeyChar = e.KeyChar.ToString().ToUpper()[0];
 
             if (e.KeyChar == '.')
             {
                 // if string is empty and the pressed button is '.' 
                 // then add '0' to the string (string will be equal to "0.")
-                if ((sender as TextBox).Text == "")    // Regex.IsMatch(this.textBoxOriginal.Text, @"^\s*$")
-                    (sender as TextBox).Text += '0';
-
+                if (textBox.Text == "")
+                    textBox.Text += '0';
                 // string shouldn't contain more than one point
-                else if ((sender as TextBox).Text.Contains('.'))   // Regex.IsMatch(this.textBoxOriginal.Text, @"\.")
+                else if (textBox.Text.Contains('.'))
                     e.KeyChar = '\0';
-
-                return;
             }
-
-            // not allow to write incorrect number (for example 001011 or 000.1)
-            if (Regex.IsMatch((sender as TextBox).Text, @"^0{1}$") && e.KeyChar != '.')
+            else if (Regex.IsMatch(e.KeyChar.ToString(), @"[0-9A-F]"))
+            {
+                // not allow to write incorrect number (for example 001011 or 000.1)
+                // and check correspondence of the entered symbol with original number system
+                // '0' = 48, '9' = 57, 'A' = 65, 'F' = 70
+                if (numberSystemValue <= 10 && e.KeyChar > 47 + numberSystemValue
+                    || numberSystemValue > 10 && e.KeyChar > 54 + numberSystemValue
+                    || textBox.Text == "0")
+                    e.KeyChar = '\0';
+            }
+            else if (e.KeyChar == 8)
+            {
+            }
+            else
             {
                 e.KeyChar = '\0';
-                return;
             }
+        }
 
-            // 'a'-'f' to 'A'-'F' 
-            if (Regex.IsMatch(e.KeyChar.ToString(), @"[a-f]"))
-            {
-                e.KeyChar = Convert.ToChar(e.KeyChar - 32);
-            }
+        private void convertBtn_Click(object sender, EventArgs e)
+        {
+            var result = Converter.Convert(
+                this.textBoxOriginal.Text,
+                this.trackBarOriginal.Value,
+                this.trackBarResult.Value
+            );
 
-            // allow only '0'-'9' and 'A'-'F' symbols
-            else if (Regex.IsMatch(e.KeyChar.ToString(), @"[^0-9A-F]"))
-            {
-                e.KeyChar = '\0';
-                return;
-            }
-
-            // check correspondence of the entered symbol with original number system
-            // '0' = 48, '9' = 57, 'A' = 65, 'F' = 70
-            if (numberSystemValue <= 10 && e.KeyChar > 47 + numberSystemValue ||
-                numberSystemValue > 10 && e.KeyChar > 54 + numberSystemValue)
-            {
-                e.KeyChar = '\0';
-                return;
-            }
-
+            this.textBoxResult.Text = result;
         }
     }
 }
