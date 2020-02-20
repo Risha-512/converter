@@ -30,11 +30,13 @@ namespace Converter
             switch (e.KeyData)
             {
                 case Keys key when (key >= Keys.D0 && key <= Keys.D9 && trackBarOriginal.Value > e.KeyValue - 48):
+                    textBoxOriginal.SelectedText = "";
                     textBoxOriginal.Text = textBoxOriginal.Text.Insert(selectionStart, (e.KeyValue - 48).ToString());
                     textBoxOriginal.SelectionStart = selectionStart + 1;
                     break;
 
                 case Keys key when (key >= Keys.A && key <= Keys.F && trackBarOriginal.Value > e.KeyValue - 55):
+                    textBoxOriginal.SelectedText = "";
                     textBoxOriginal.Text = textBoxOriginal.Text.Insert(selectionStart, key.ToString());
                     textBoxOriginal.SelectionStart = selectionStart + 1;
                     break;
@@ -46,6 +48,10 @@ namespace Converter
 
                 case Keys.OemPeriod:
                     pointBtn_Click(this, null);
+                    break;
+
+                case Keys.Control | Keys.A:
+                    textBoxOriginal.SelectAll();
                     break;
 
                 default:
@@ -60,6 +66,7 @@ namespace Converter
 
         private void historyMenuItem_Click(object sender, EventArgs e)
         {
+            //new Form().Show();
         }
 
         private void aboutMenuItem_Click(object sender, EventArgs e)
@@ -116,20 +123,22 @@ namespace Converter
         private void charBtn_Click(object sender, EventArgs e)
         {
             var selectionStart = textBoxOriginal.SelectionStart;
+            textBoxOriginal.SelectedText = "";
             textBoxOriginal.Text = textBoxOriginal.Text.Insert(selectionStart, (sender as Button).Text);
             textBoxOriginal.SelectionStart = selectionStart + 1;
         }
 
         private void pointBtn_Click(object sender, EventArgs e)
         {
+            var selectionStart = textBoxOriginal.SelectionStart;
             if (textBoxOriginal.Text == "")
             {
                 textBoxOriginal.Text += "0.";
                 textBoxOriginal.SelectionStart = 2;
             }
-            else if (!textBoxOriginal.Text.Contains("."))
+            else if (!textBoxOriginal.Text.Contains(".") || textBoxOriginal.SelectedText.Contains("."))
             {
-                var selectionStart = textBoxOriginal.SelectionStart;
+                textBoxOriginal.SelectedText = "";
                 textBoxOriginal.Text = textBoxOriginal.Text.Insert(selectionStart, 
                     selectionStart == 0 ? "0." : ".");
                 textBoxOriginal.SelectionStart = selectionStart == 0 ? 2 : selectionStart + 1;
