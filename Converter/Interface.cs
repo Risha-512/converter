@@ -17,10 +17,22 @@ namespace Converter
         public Interface()
         {
             InitializeComponent();
-
+            this.KeyDown += Interface_KeyDown;
             this.label2.Text += trackBarOriginal.Value.ToString();
             this.label3.Text += trackBarResult.Value.ToString();
             EnableNumberButtons();
+        }
+
+        private void Interface_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Back && textBoxOriginal.Text != String.Empty)
+                textBoxOriginal.Text = this.textBoxOriginal.Text.Remove(this.textBoxOriginal.Text.Length - 1);
+            if (e.KeyValue > 47 && e.KeyValue < 58 && trackBarOriginal.Value > e.KeyValue - 48)
+                textBoxOriginal.Text += e.KeyValue - 48;
+            if (e.KeyValue > 64 && e.KeyValue < 71 && trackBarOriginal.Value > e.KeyValue - 55)
+                textBoxOriginal.Text += e.KeyData;
+            if (e.KeyData == Keys.OemPeriod)
+                pointBtn_Click(this, null);
         }
 
         private void exitMenuItem_Click(object sender, EventArgs e)
@@ -55,6 +67,7 @@ namespace Converter
 
         private void resultlNumberSystem_Changed(object sender, EventArgs e)
         {
+            this.textBoxResult.Text = "";
             this.label3.Text = AppendNumberToLabel(this.label3.Text, (sender as TrackBar).Value);
         }
 
@@ -81,8 +94,8 @@ namespace Converter
 
         private void textBoxOriginal_TextChanged(object sender, EventArgs e)
         {
-            (sender as TextBox).Focus();
-            (sender as TextBox).SelectionStart = (sender as TextBox).Text.Length;
+            //(sender as TextBox).Focus();
+            //(sender as TextBox).SelectionStart = (sender as TextBox).Text.Length;
 
             this.convertBtn.Enabled = (sender as TextBox).Text != "";
             this.eraseBtn.Enabled = this.convertBtn.Enabled;
@@ -91,54 +104,22 @@ namespace Converter
 
         private void charBtn_Click(object sender, EventArgs e)
         {
-            if (this.textBoxOriginal.Text == "0" && (sender as Button).Text != ".")
-                return;
-
-            if (this.textBoxOriginal.Text == "" && (sender as Button).Text == ".")
-                this.textBoxOriginal.Text += '0';
-
             this.textBoxOriginal.Text += (sender as Button).Text;
+        }
+
+        private void pointBtn_Click(object sender, EventArgs e)
+        {
+            if (textBoxOriginal.Text == String.Empty)
+                textBoxOriginal.Text += "0.";
+            else if (!textBoxOriginal.Text.Contains("."))
+            {
+                textBoxOriginal.Text += ".";
+            }
         }
 
         private void eraseBtn_Click(object sender, EventArgs e)
         {
             this.textBoxOriginal.Text = this.textBoxOriginal.Text.Remove(this.textBoxOriginal.Text.Length - 1);
-        }
-
-        private void textBoxOriginal_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            int numberSystemValue = this.trackBarOriginal.Value;
-            var textBox = (TextBox)sender;
-
-            e.KeyChar = e.KeyChar.ToString().ToUpper()[0];
-
-            if (e.KeyChar == '.')
-            {
-                // if string is empty and the pressed button is '.' 
-                // then add '0' to the string (string will be equal to "0.")
-                if (textBox.Text == "")
-                    textBox.Text += '0';
-                // string shouldn't contain more than one point
-                else if (textBox.Text.Contains('.'))
-                    e.KeyChar = '\0';
-            }
-            else if (Regex.IsMatch(e.KeyChar.ToString(), @"[0-9A-F]"))
-            {
-                // not allow to write incorrect number (for example 001011 or 000.1)
-                // and check correspondence of the entered symbol with original number system
-                // '0' = 48, '9' = 57, 'A' = 65, 'F' = 70
-                if (numberSystemValue <= 10 && e.KeyChar > 47 + numberSystemValue
-                    || numberSystemValue > 10 && e.KeyChar > 54 + numberSystemValue
-                    || textBox.Text == "0")
-                    e.KeyChar = '\0';
-            }
-            else if (e.KeyChar == 8)
-            {
-            }
-            else
-            {
-                e.KeyChar = '\0';
-            }
         }
 
         private void convertBtn_Click(object sender, EventArgs e)
