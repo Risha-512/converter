@@ -13,11 +13,18 @@ namespace Converter
 {
     public partial class History : Form
     {
-        static private string path = Directory.GetCurrentDirectory() + "\\History.bin";
+        static private string path = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + "\\Converter";
 
         public History()
         {
             InitializeComponent();
+        }
+
+        static public void CreateConverterDirectory()
+        {
+            if (!Directory.Exists(path))
+                Directory.CreateDirectory(path);
+            path += "\\History.bin";
         }
 
         static public void AddConvertData(string origNum, int origNumBase, string resNum, int resNumBase)
@@ -36,7 +43,6 @@ namespace Converter
 
         private void History_Load(object sender, EventArgs e)
         {
-
             BinaryReader binReader;
 
             if (File.Exists(path))
@@ -48,11 +54,9 @@ namespace Converter
                         var list = new List<string>();
 
                         for (int i = 1; binReader.BaseStream.Position != binReader.BaseStream.Length; i++)
-                            list.Add($"{i}.\t{binReader.ReadString()}");
-
-                        historyList.DataSource = list;
+                            historyList.Items.Add($"{i}.\t{binReader.ReadString()}");
                     }
-                    catch { throw new Exception("History.bin: Can't read file"); }
+                    catch { throw new Exception("History.bin: can't read file"); }
                 }
             }
         }
