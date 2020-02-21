@@ -63,13 +63,14 @@ namespace Converter
 
         private void clearBtn_Click(object sender, EventArgs e)
         {
-            if (historyList.Text != "")
+            if (historyList.Items.Count > 0)
             {
                 historyList.DataSource = null;
                 BinaryWriter binWriter;
 
                 using (binWriter = new BinaryWriter(File.Open(path, FileMode.Truncate))) { }
             }
+            Close();
         }
     }
 }
