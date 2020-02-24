@@ -8,18 +8,6 @@ namespace Converter
 {
     public class Converter
     {
-        static private int IntPow(int x, uint pow)
-        {
-            int ret = 1;
-            while (pow != 0)
-            {
-                if ((pow & 1) == 1)
-                    ret *= x;
-                x *= x;
-                pow >>= 1;
-            }
-            return ret;
-        }
         static public string Convert(string data, int origNumBase, int resNumBase)
         {
             if (origNumBase == resNumBase)
@@ -27,14 +15,14 @@ namespace Converter
 
             var numSplit = data.Split('.');
 
-            var numDec = 0;
-            var fractNumDec = 0.0d;
+            UInt64 numDec = 0;
+            double fractNumDec = 0.0d;
 
             if (numSplit[0] != "0")
             {
                 numDec = origNumBase != 10
                     ? ConvertOtherBaseToDec(numSplit[0], origNumBase)
-                    : Int32.Parse(numSplit[0]);
+                    : UInt64.Parse(numSplit[0]);
             }
 
             if (numSplit.Length == 2)
@@ -44,39 +32,45 @@ namespace Converter
                     : Double.Parse("0," + numSplit[1]);
             }
 
-            return (numDec == 0 ? "0" : ConvertDecToOtherBase(numDec, resNumBase)) +
-                (fractNumDec == 0.0d ? "" : "." + ConvertFractionalToOtherBase(fractNumDec, resNumBase));
+            return (
+                numDec == 0
+                    ? "0"
+                    : ConvertDecToOtherBase(numDec, resNumBase))
+                + (fractNumDec == 0.0d
+                    ? ""
+                    : $".{ConvertFractionalToOtherBase(fractNumDec, resNumBase)}"
+            );
         }
 
-        static private int ConvertOtherBaseToDec(string numString, int numBase)
+        static private UInt64 ConvertOtherBaseToDec(string numString, int numBase)
         {
             int n = numString.Length;
-            int decimalNumber = 0;
-     
+            UInt64 decimalNumber = 0;
+
             for (int i = 0; i < n; i++)
-                decimalNumber += (
+                decimalNumber += (UInt64)((
                     numString[i] < 'A'
                         ? numString[i] - '0'
                         : numString[i] - 'A' + 10
-                    ) * IntPow(numBase, (uint)(n - i - 1));
+                    ) * Math.Pow(numBase, n - i - 1));
 
             return decimalNumber;
         }
 
-        static private string ConvertDecToOtherBase(int num, int numBase)
+        static private string ConvertDecToOtherBase(UInt64 num, int numBase)
         {
             string resultString = "";
-            int result = num, remainder;
+            UInt64 result = num, remainder;
 
             while (result != 0)
             {
-                remainder = result % numBase;
+                remainder = result % (UInt64)numBase;
 
-                resultString = resultString.Insert(0, remainder < 10 
+                resultString = resultString.Insert(0, remainder < 10
                     ? remainder.ToString()
                     : ((char)(remainder + 55)).ToString());
 
-                result /= numBase;  
+                result /= (UInt64)numBase;
             }
 
             return resultString;

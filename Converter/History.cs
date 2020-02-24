@@ -29,9 +29,7 @@ namespace Converter
 
         static public void AddConvertData(string origNum, int origNumBase, string resNum, int resNumBase)
         {
-            BinaryWriter binWriter;
-
-            using (binWriter = new BinaryWriter(File.Open(path, FileMode.Append)))
+            using (var binWriter = new BinaryWriter(File.Open(path, FileMode.Append)))
             {
                 try
                 {
@@ -43,18 +41,16 @@ namespace Converter
 
         private void History_Load(object sender, EventArgs e)
         {
-            BinaryReader binReader;
-
             if (File.Exists(path))
             {
-                using (binReader = new BinaryReader(new FileStream(path, FileMode.Open, FileAccess.Read)))
+                using (var binReader = new BinaryReader(new FileStream(path, FileMode.Open, FileAccess.Read)))
                 {
                     try
                     {
                         var list = new List<string>();
 
                         for (int i = 1; binReader.BaseStream.Position != binReader.BaseStream.Length; i++)
-                            historyList.Items.Add($"{i}.\t{binReader.ReadString()}");
+                            historyList.Items.Add($"{i}. {binReader.ReadString()}");
                     }
                     catch { throw new Exception("History.bin: can't read file"); }
                 }
@@ -65,10 +61,9 @@ namespace Converter
         {
             if (historyList.Items.Count > 0)
             {
-                historyList.DataSource = null;
-                BinaryWriter binWriter;
+                historyList.Dispose();
 
-                using (binWriter = new BinaryWriter(File.Open(path, FileMode.Truncate))) { }
+                using (var binWriter = new BinaryWriter(File.Open(path, FileMode.Truncate))) { }
             }
             Close();
         }
