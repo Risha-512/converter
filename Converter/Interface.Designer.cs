@@ -493,8 +493,6 @@
             this.MaximizeBox = false;
             this.Name = "Interface";
             this.Text = "Converter";
-            this.Activated += new System.EventHandler(this.Interface_Focus);
-            this.Deactivate += new System.EventHandler(this.Interface_Focus);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);

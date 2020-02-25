@@ -14,7 +14,6 @@ namespace Converter
     public partial class History : Form
     {
         static private string path = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + "\\Converter";
-        static public bool isWindowOpened = false;
 
         public History()
         {
@@ -42,8 +41,6 @@ namespace Converter
 
         private void History_Load(object sender, EventArgs e)
         {
-            isWindowOpened = true;
-
             if (File.Exists(path))
             {
                 using (var binReader = new BinaryReader(new FileStream(path, FileMode.Open, FileAccess.Read)))
@@ -67,11 +64,6 @@ namespace Converter
                 using (var binWriter = new BinaryWriter(File.Open(path, FileMode.Truncate))) { }
             }
             Close();
-        }
-
-        private void History_Closing(object sender, FormClosingEventArgs e)
-        {
-            isWindowOpened = false;
         }
     }
 }

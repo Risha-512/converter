@@ -66,8 +66,7 @@ namespace Converter
 
         private void historyMenuItem_Click(object sender, EventArgs e)
         {
-            if (!History.isWindowOpened)
-                new History().Show();
+            new History().ShowDialog();
         }
 
         private void aboutMenuItem_Click(object sender, EventArgs e)
@@ -116,7 +115,7 @@ namespace Converter
 
         private void textBoxOriginal_TextChanged(object sender, EventArgs e)
         {
-            convertBtn.Enabled = (sender as TextBox).Text != "" && !History.isWindowOpened;
+            convertBtn.Enabled = (sender as TextBox).Text != "";
             eraseBtn.Enabled = convertBtn.Enabled;
             pointBtn.Enabled = !(sender as TextBox).Text.Contains('.');
         }
@@ -170,11 +169,6 @@ namespace Converter
 
             History.AddConvertData(textBoxOriginal.Text, trackBarOriginal.Value,
                 result, trackBarResult.Value);
-        }
-
-        private void Interface_Focus(object sender, EventArgs e)
-        {
-            convertBtn.Enabled = !History.isWindowOpened;
         }
     }
 }

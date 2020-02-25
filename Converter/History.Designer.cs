@@ -88,7 +88,6 @@
             this.MaximizeBox = false;
             this.Name = "History";
             this.Text = "History";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.History_Closing);
             this.Load += new System.EventHandler(this.History_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
