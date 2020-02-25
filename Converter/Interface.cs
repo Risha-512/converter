@@ -66,7 +66,8 @@ namespace Converter
 
         private void historyMenuItem_Click(object sender, EventArgs e)
         {
-            new History().Show();
+            if (!History.isWindowOpened)
+                new History().Show();
         }
 
         private void aboutMenuItem_Click(object sender, EventArgs e)
