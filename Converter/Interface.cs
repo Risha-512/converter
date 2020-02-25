@@ -115,7 +115,7 @@ namespace Converter
 
         private void textBoxOriginal_TextChanged(object sender, EventArgs e)
         {
-            convertBtn.Enabled = (sender as TextBox).Text != "";
+            convertBtn.Enabled = (sender as TextBox).Text != "" && !History.isWindowOpened;
             eraseBtn.Enabled = convertBtn.Enabled;
             pointBtn.Enabled = !(sender as TextBox).Text.Contains('.');
         }
@@ -167,8 +167,13 @@ namespace Converter
 
             textBoxResult.Text = result;
 
-            History.AddConvertData(textBoxOriginal.Text, trackBarOriginal.Value, 
+            History.AddConvertData(textBoxOriginal.Text, trackBarOriginal.Value,
                 result, trackBarResult.Value);
+        }
+
+        private void Interface_Focus(object sender, EventArgs e)
+        {
+            convertBtn.Enabled = !History.isWindowOpened;
         }
     }
 }
