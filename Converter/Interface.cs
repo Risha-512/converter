@@ -1,14 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Text.RegularExpressions;
-
 
 namespace Converter
 {
@@ -32,13 +24,13 @@ namespace Converter
                 case Keys key when (key >= Keys.D0 && key <= Keys.D9 && trackBarOriginal.Value > e.KeyValue - 48):
                     textBoxOriginal.SelectedText = "";
                     textBoxOriginal.Text = textBoxOriginal.Text.Insert(selectionStart, (e.KeyValue - 48).ToString());
-                    textBoxOriginal.SelectionStart = selectionStart + 1;
+                    textBoxOriginal.SelectionStart = ++selectionStart;
                     break;
 
                 case Keys key when (key >= Keys.A && key <= Keys.F && trackBarOriginal.Value > e.KeyValue - 55):
                     textBoxOriginal.SelectedText = "";
                     textBoxOriginal.Text = textBoxOriginal.Text.Insert(selectionStart, key.ToString());
-                    textBoxOriginal.SelectionStart = selectionStart + 1;
+                    textBoxOriginal.SelectionStart = ++selectionStart;
                     break;
 
                 case Keys.Back:
@@ -71,6 +63,7 @@ namespace Converter
 
         private void aboutMenuItem_Click(object sender, EventArgs e)
         {
+            new Ref().ShowDialog();
         }
 
         private string AppendNumberToLabel(string str, int number)
@@ -125,7 +118,7 @@ namespace Converter
             var selectionStart = textBoxOriginal.SelectionStart;
             textBoxOriginal.SelectedText = "";
             textBoxOriginal.Text = textBoxOriginal.Text.Insert(selectionStart, (sender as Button).Text);
-            textBoxOriginal.SelectionStart = selectionStart + 1;
+            textBoxOriginal.SelectionStart = ++selectionStart;
         }
 
         private void pointBtn_Click(object sender, EventArgs e)
@@ -141,7 +134,7 @@ namespace Converter
                 textBoxOriginal.SelectedText = "";
                 textBoxOriginal.Text = textBoxOriginal.Text.Insert(selectionStart, 
                     selectionStart == 0 ? "0." : ".");
-                textBoxOriginal.SelectionStart = selectionStart == 0 ? 2 : selectionStart + 1;
+                textBoxOriginal.SelectionStart = selectionStart == 0 ? 2 : ++selectionStart;
             }
         }
 
@@ -151,7 +144,7 @@ namespace Converter
             if (textBoxOriginal.SelectedText == "" && textBoxOriginal.Text != "" && selectionStart != 0)
             {
                 textBoxOriginal.Text = textBoxOriginal.Text.Remove(selectionStart - 1, 1);
-                textBoxOriginal.SelectionStart = selectionStart - 1;
+                textBoxOriginal.SelectionStart = --selectionStart;
             }
             else
                 textBoxOriginal.SelectedText = "";

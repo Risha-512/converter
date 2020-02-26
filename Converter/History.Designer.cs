@@ -87,7 +87,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "History";
-            this.Text = "History";
+            this.Text = "Converter: history";
             this.Load += new System.EventHandler(this.History_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
