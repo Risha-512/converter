@@ -2,7 +2,7 @@
 
 namespace Converter
 {
-    public class Converter
+    static public class Converter
     {
         static public string Convert(string data, int origNumBase, int resNumBase)
         {

@@ -43,8 +43,8 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(384, 205);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 205F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(384, 170);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // info
@@ -53,15 +53,17 @@
             this.info.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.info.Location = new System.Drawing.Point(3, 0);
             this.info.Name = "info";
-            this.info.Size = new System.Drawing.Size(167, 17);
+            this.info.Size = new System.Drawing.Size(369, 153);
             this.info.TabIndex = 0;
-            this.info.Text = "Here gonna be some text";
+            this.info.Text = "Приложение \"Конвертер\" позволяет перевести число из одной системы счисления в дру" +
+    "гую. Поддерживаемые системы: от 2 до 16.\r\n\r\n\r\n\r\n\r\nРазработано студентами НГТУ ФП" +
+    "МИ: \r\nСмолин Олег, Лагунова Марина.";
             // 
             // Ref
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(408, 229);
+            this.ClientSize = new System.Drawing.Size(408, 194);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

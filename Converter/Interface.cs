@@ -6,12 +6,17 @@ namespace Converter
 {
     public partial class Interface : Form
     {
+        ConverterControl control = new ConverterControl();
+
         public Interface()
         {
             InitializeComponent();
             KeyDown += Interface_KeyDown;
             label2.Text += trackBarOriginal.Value.ToString();
             label3.Text += trackBarResult.Value.ToString();
+            textBoxOriginal.Text = "";
+            textBoxResult.Text = "";
+            textBoxOriginal.SelectionStart = 1;
             EnableNumberButtons();
         }
 
@@ -74,14 +79,16 @@ namespace Converter
 
         private void originalNumberSystem_Changed(object sender, EventArgs e)
         {
-            textBoxOriginal.Text = "";
+            control.originalBase = (sender as TrackBar).Value;
+            textBoxOriginal.Text = control.editor.Clear().number;
+
             EnableNumberButtons();
             label2.Text = AppendNumberToLabel(label2.Text, (sender as TrackBar).Value);
         }
 
         private void resultlNumberSystem_Changed(object sender, EventArgs e)
         {
-            textBoxResult.Text = "";
+            textBoxOriginal.Text = control.editor.Clear().number;
             label3.Text = AppendNumberToLabel(label3.Text, (sender as TrackBar).Value);
         }
 

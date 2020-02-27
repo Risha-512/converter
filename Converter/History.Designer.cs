@@ -47,7 +47,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(384, 292);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(558, 432);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // historyList
@@ -60,7 +60,7 @@
             this.historyList.ItemHeight = 18;
             this.historyList.Location = new System.Drawing.Point(3, 3);
             this.historyList.Name = "historyList";
-            this.historyList.Size = new System.Drawing.Size(378, 256);
+            this.historyList.Size = new System.Drawing.Size(552, 382);
             this.historyList.TabIndex = 0;
             // 
             // clearBtn
@@ -68,9 +68,9 @@
             this.clearBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.clearBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.854546F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.clearBtn.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.clearBtn.Location = new System.Drawing.Point(3, 265);
+            this.clearBtn.Location = new System.Drawing.Point(3, 391);
             this.clearBtn.Name = "clearBtn";
-            this.clearBtn.Size = new System.Drawing.Size(378, 24);
+            this.clearBtn.Size = new System.Drawing.Size(552, 38);
             this.clearBtn.TabIndex = 1;
             this.clearBtn.Text = "Clear history";
             this.clearBtn.UseVisualStyleBackColor = true;
@@ -81,7 +81,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(408, 316);
+            this.ClientSize = new System.Drawing.Size(582, 456);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
