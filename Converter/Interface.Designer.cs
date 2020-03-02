@@ -78,7 +78,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
-            this.menuStrip1.Size = new System.Drawing.Size(408, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(408, 28);
             this.menuStrip1.TabIndex = 29;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.UseWaitCursor = true;
@@ -86,21 +86,21 @@
             // exitMenuItem
             // 
             this.exitMenuItem.Name = "exitMenuItem";
-            this.exitMenuItem.Size = new System.Drawing.Size(44, 23);
+            this.exitMenuItem.Size = new System.Drawing.Size(44, 26);
             this.exitMenuItem.Text = "exit";
             this.exitMenuItem.Click += new System.EventHandler(this.exitMenuItem_Click);
             // 
             // historyMenuItem
             // 
             this.historyMenuItem.Name = "historyMenuItem";
-            this.historyMenuItem.Size = new System.Drawing.Size(65, 23);
+            this.historyMenuItem.Size = new System.Drawing.Size(65, 26);
             this.historyMenuItem.Text = "history";
             this.historyMenuItem.Click += new System.EventHandler(this.historyMenuItem_Click);
             // 
             // aboutMenuItem
             // 
             this.aboutMenuItem.Name = "aboutMenuItem";
-            this.aboutMenuItem.Size = new System.Drawing.Size(59, 23);
+            this.aboutMenuItem.Size = new System.Drawing.Size(59, 26);
             this.aboutMenuItem.Text = "about";
             this.aboutMenuItem.Click += new System.EventHandler(this.aboutMenuItem_Click);
             // 
@@ -223,7 +223,7 @@
             this.trackBarOriginal.Name = "trackBarOriginal";
             this.trackBarOriginal.Size = new System.Drawing.Size(186, 34);
             this.trackBarOriginal.TabIndex = 4;
-            this.trackBarOriginal.Value = 16;
+            this.trackBarOriginal.Value = 10;
             this.trackBarOriginal.ValueChanged += new System.EventHandler(this.originalNumberSystem_Changed);
             // 
             // trackBarResult
@@ -236,7 +236,7 @@
             this.trackBarResult.Name = "trackBarResult";
             this.trackBarResult.Size = new System.Drawing.Size(186, 34);
             this.trackBarResult.TabIndex = 5;
-            this.trackBarResult.Value = 2;
+            this.trackBarResult.Value = 16;
             this.trackBarResult.ValueChanged += new System.EventHandler(this.resultlNumberSystem_Changed);
             // 
             // label4

@@ -11,7 +11,7 @@ namespace Converter
         [STAThread]
         static void Main()
         {
-            History.CreateConverterDirectory();
+            //History.CreateConverterDirectory();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

@@ -6,54 +6,60 @@ namespace Converter
 {
     public partial class Interface : Form
     {
-        ConverterControl control = new ConverterControl();
+        public static ConverterControl control = new ConverterControl();
 
         public Interface()
         {
             InitializeComponent();
             KeyDown += Interface_KeyDown;
+
+            trackBarOriginal.Value = control.originalBase;
+            trackBarResult.Value = control.resultBase;
+
             label2.Text += trackBarOriginal.Value.ToString();
             label3.Text += trackBarResult.Value.ToString();
-            textBoxOriginal.Text = "";
-            textBoxResult.Text = "";
+
+            textBoxOriginal.Text = "0";
+            textBoxResult.Text = "0";
             textBoxOriginal.SelectionStart = 1;
+
             EnableNumberButtons();
         }
 
         private void Interface_KeyDown(object sender, KeyEventArgs e)
         {
-            var selectionStart = textBoxOriginal.SelectionStart;
+            control.editor.SetSelection(textBoxOriginal.SelectionStart, textBoxOriginal.SelectionLength);
 
             switch (e.KeyData)
             {
-                case Keys key when (key >= Keys.D0 && key <= Keys.D9 && trackBarOriginal.Value > e.KeyValue - 48):
-                    textBoxOriginal.SelectedText = "";
-                    textBoxOriginal.Text = textBoxOriginal.Text.Insert(selectionStart, (e.KeyValue - 48).ToString());
-                    textBoxOriginal.SelectionStart = ++selectionStart;
+                case Keys key when (key >= Keys.D0 && key <= Keys.D9 && control.originalBase > e.KeyValue - 48):
+                    textBoxOriginal.Text = control.EditNumber(ConverterControl.EditCommand.AddDigit, (e.KeyValue - 48).ToString());
                     break;
 
-                case Keys key when (key >= Keys.A && key <= Keys.F && trackBarOriginal.Value > e.KeyValue - 55):
-                    textBoxOriginal.SelectedText = "";
-                    textBoxOriginal.Text = textBoxOriginal.Text.Insert(selectionStart, key.ToString());
-                    textBoxOriginal.SelectionStart = ++selectionStart;
+                case Keys key when (key >= Keys.A && key <= Keys.F && control.originalBase > e.KeyValue - 55):
+                    textBoxOriginal.Text = control.EditNumber(ConverterControl.EditCommand.AddDigit, key.ToString());
                     break;
 
                 case Keys.Back:
                 case Keys.Delete:
-                    eraseBtn_Click(this, null);
+                    textBoxOriginal.Text = control.EditNumber(ConverterControl.EditCommand.Erase);
                     break;
 
                 case Keys.OemPeriod:
-                    pointBtn_Click(this, null);
+                    var numLength = control.editor.number.Length;
+                    textBoxOriginal.Text = control.EditNumber(ConverterControl.EditCommand.AddDelim);
                     break;
 
                 case Keys.Control | Keys.A:
                     textBoxOriginal.SelectAll();
-                    break;
+                    control.editor.SetSelection(textBoxOriginal.SelectionStart, textBoxOriginal.SelectionLength);
+                    return;
 
                 default:
-                    break;
+                    return;
             }
+
+            textBoxOriginal.SelectionStart = control.editor.startIndex;
         }
 
         private void exitMenuItem_Click(object sender, EventArgs e)
@@ -63,7 +69,7 @@ namespace Converter
 
         private void historyMenuItem_Click(object sender, EventArgs e)
         {
-            new History().ShowDialog();
+            new HistoryWindow().ShowDialog();
         }
 
         private void aboutMenuItem_Click(object sender, EventArgs e)
@@ -80,21 +86,22 @@ namespace Converter
         private void originalNumberSystem_Changed(object sender, EventArgs e)
         {
             control.originalBase = (sender as TrackBar).Value;
-            textBoxOriginal.Text = control.editor.Clear().number;
-
+            textBoxOriginal.Text = control.EditNumber(ConverterControl.EditCommand.Clear);
+            label2.Text = AppendNumberToLabel(label2.Text, control.originalBase);
+            
             EnableNumberButtons();
-            label2.Text = AppendNumberToLabel(label2.Text, (sender as TrackBar).Value);
         }
 
         private void resultlNumberSystem_Changed(object sender, EventArgs e)
         {
-            textBoxOriginal.Text = control.editor.Clear().number;
-            label3.Text = AppendNumberToLabel(label3.Text, (sender as TrackBar).Value);
+            control.resultBase = (sender as TrackBar).Value;
+            textBoxResult.Text = "0";
+            label3.Text = AppendNumberToLabel(label3.Text, control.resultBase);
         }
 
         private void EnableNumberButtons()
         {
-            int numberSystemValue = trackBarOriginal.Value;
+            int numberSystemValue = control.originalBase;
 
             twoBtn.Enabled = numberSystemValue > 2;
             threeBtn.Enabled = numberSystemValue > 3;
@@ -115,60 +122,38 @@ namespace Converter
 
         private void textBoxOriginal_TextChanged(object sender, EventArgs e)
         {
-            convertBtn.Enabled = (sender as TextBox).Text != "";
+            convertBtn.Enabled = control.editor.number != "";
             eraseBtn.Enabled = convertBtn.Enabled;
-            pointBtn.Enabled = !(sender as TextBox).Text.Contains('.');
+            pointBtn.Enabled = !control.editor.number.Contains('.');
+
+            textBoxResult.Text = "0";
         }
 
         private void charBtn_Click(object sender, EventArgs e)
         {
-            var selectionStart = textBoxOriginal.SelectionStart;
-            textBoxOriginal.SelectedText = "";
-            textBoxOriginal.Text = textBoxOriginal.Text.Insert(selectionStart, (sender as Button).Text);
-            textBoxOriginal.SelectionStart = ++selectionStart;
+            control.editor.SetSelection(textBoxOriginal.SelectionStart, textBoxOriginal.SelectionLength);
+            textBoxOriginal.Text = control.EditNumber(ConverterControl.EditCommand.AddDigit, (sender as Button).Text);
+            textBoxOriginal.SelectionStart = control.editor.startIndex;
         }
 
         private void pointBtn_Click(object sender, EventArgs e)
         {
-            var selectionStart = textBoxOriginal.SelectionStart;
-            if (textBoxOriginal.Text == "")
-            {
-                textBoxOriginal.Text += "0.";
-                textBoxOriginal.SelectionStart = 2;
-            }
-            else if (!textBoxOriginal.Text.Contains(".") || textBoxOriginal.SelectedText.Contains("."))
-            {
-                textBoxOriginal.SelectedText = "";
-                textBoxOriginal.Text = textBoxOriginal.Text.Insert(selectionStart, 
-                    selectionStart == 0 ? "0." : ".");
-                textBoxOriginal.SelectionStart = selectionStart == 0 ? 2 : ++selectionStart;
-            }
+            control.editor.SetSelection(textBoxOriginal.SelectionStart, textBoxOriginal.SelectionLength);
+            textBoxOriginal.Text = control.EditNumber(ConverterControl.EditCommand.AddDelim);
+            textBoxOriginal.SelectionStart = control.editor.startIndex;
         }
 
         private void eraseBtn_Click(object sender, EventArgs e)
         {
-            var selectionStart = textBoxOriginal.SelectionStart;
-            if (textBoxOriginal.SelectedText == "" && textBoxOriginal.Text != "" && selectionStart != 0)
-            {
-                textBoxOriginal.Text = textBoxOriginal.Text.Remove(selectionStart - 1, 1);
-                textBoxOriginal.SelectionStart = --selectionStart;
-            }
-            else
-                textBoxOriginal.SelectedText = "";
+            control.editor.SetSelection(textBoxOriginal.SelectionStart, textBoxOriginal.SelectionLength);
+            textBoxOriginal.Text = control.EditNumber(ConverterControl.EditCommand.Erase);
+            textBoxOriginal.SelectionStart = control.editor.startIndex;
         }
 
         private void convertBtn_Click(object sender, EventArgs e)
         {
-            var result = Converter.Convert(
-                textBoxOriginal.Text,
-                trackBarOriginal.Value,
-                trackBarResult.Value
-            );
-
-            textBoxResult.Text = result;
-
-            History.AddConvertData(textBoxOriginal.Text, trackBarOriginal.Value,
-                result, trackBarResult.Value);
+            textBoxResult.Text = control.Convert();
         }
+
     }
 }
