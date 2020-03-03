@@ -32,8 +32,8 @@ namespace Converter
                 {
                     try
                     {
-                        for (int i = 1; binReader.BaseStream.Position != binReader.BaseStream.Length; i++)
-                            historyList.Add($"{i}. {binReader.ReadString()}");
+                        while (binReader.BaseStream.Position != binReader.BaseStream.Length)
+                            historyList.Add(binReader.ReadString());
                     }
                     catch { throw new Exception($"{filePath}: problem reading file"); }
                 }

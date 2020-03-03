@@ -16,22 +16,17 @@ namespace Converter
             Clear
         }
 
-
         public int originalBase { get; set; }
-
         public int resultBase { get; set; }
-
-        const int accuracy = 10;
-
+        
         public History history = new History();
+        public Editor editor = new Editor();
 
         public ConverterControl()
         {
             originalBase = 10;
             resultBase = 16;
         }
-
-        public Editor editor = new Editor();
 
         public string EditNumber(EditCommand type, string n = "")
         {

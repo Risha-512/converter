@@ -9,13 +9,10 @@ namespace Converter
     public class Editor
     {
         public string number { get; private set; }
-
         public int startIndex { get; private set; }
-
         public int symbolCount { get; private set; }
 
         const string delim = ".";
-
         const string zero = "0";
 
         public Editor()

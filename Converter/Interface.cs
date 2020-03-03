@@ -36,6 +36,10 @@ namespace Converter
                     textBoxOriginal.Text = control.EditNumber(ConverterControl.EditCommand.AddDigit, (e.KeyValue - 48).ToString());
                     break;
 
+                case Keys key when (key >= Keys.NumPad0 && key <= Keys.NumPad9 && control.originalBase > e.KeyValue - 96):
+                    textBoxOriginal.Text = control.EditNumber(ConverterControl.EditCommand.AddDigit, (e.KeyValue - 96).ToString());
+                    break;
+
                 case Keys key when (key >= Keys.A && key <= Keys.F && control.originalBase > e.KeyValue - 55):
                     textBoxOriginal.Text = control.EditNumber(ConverterControl.EditCommand.AddDigit, key.ToString());
                     break;
@@ -46,7 +50,7 @@ namespace Converter
                     break;
 
                 case Keys.OemPeriod:
-                    var numLength = control.editor.number.Length;
+                case Keys.Decimal:
                     textBoxOriginal.Text = control.EditNumber(ConverterControl.EditCommand.AddDelim);
                     break;
 
@@ -54,12 +58,12 @@ namespace Converter
                     textBoxOriginal.SelectAll();
                     control.editor.SetSelection(textBoxOriginal.SelectionStart, textBoxOriginal.SelectionLength);
                     return;
-
                 default:
                     return;
             }
 
             textBoxOriginal.SelectionStart = control.editor.startIndex;
+            textBoxOriginal.Focus();
         }
 
         private void exitMenuItem_Click(object sender, EventArgs e)
@@ -90,6 +94,7 @@ namespace Converter
             label2.Text = AppendNumberToLabel(label2.Text, control.originalBase);
             
             EnableNumberButtons();
+            textBoxOriginal.Focus();
         }
 
         private void resultlNumberSystem_Changed(object sender, EventArgs e)
@@ -97,6 +102,7 @@ namespace Converter
             control.resultBase = (sender as TrackBar).Value;
             textBoxResult.Text = "0";
             label3.Text = AppendNumberToLabel(label3.Text, control.resultBase);
+            textBoxOriginal.Focus();
         }
 
         private void EnableNumberButtons()
@@ -134,6 +140,7 @@ namespace Converter
             control.editor.SetSelection(textBoxOriginal.SelectionStart, textBoxOriginal.SelectionLength);
             textBoxOriginal.Text = control.EditNumber(ConverterControl.EditCommand.AddDigit, (sender as Button).Text);
             textBoxOriginal.SelectionStart = control.editor.startIndex;
+            textBoxOriginal.Focus();
         }
 
         private void pointBtn_Click(object sender, EventArgs e)
@@ -141,6 +148,7 @@ namespace Converter
             control.editor.SetSelection(textBoxOriginal.SelectionStart, textBoxOriginal.SelectionLength);
             textBoxOriginal.Text = control.EditNumber(ConverterControl.EditCommand.AddDelim);
             textBoxOriginal.SelectionStart = control.editor.startIndex;
+            textBoxOriginal.Focus();
         }
 
         private void eraseBtn_Click(object sender, EventArgs e)
@@ -148,11 +156,13 @@ namespace Converter
             control.editor.SetSelection(textBoxOriginal.SelectionStart, textBoxOriginal.SelectionLength);
             textBoxOriginal.Text = control.EditNumber(ConverterControl.EditCommand.Erase);
             textBoxOriginal.SelectionStart = control.editor.startIndex;
+            textBoxOriginal.Focus();
         }
 
         private void convertBtn_Click(object sender, EventArgs e)
         {
             textBoxResult.Text = control.Convert();
+            textBoxOriginal.Focus();
         }
 
     }
