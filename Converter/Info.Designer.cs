@@ -1,6 +1,6 @@
 ﻿namespace Converter
 {
-    partial class Ref
+    partial class Info
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ref));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Info));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.info = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();

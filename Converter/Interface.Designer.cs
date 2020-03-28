@@ -78,29 +78,28 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
-            this.menuStrip1.Size = new System.Drawing.Size(408, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(408, 25);
             this.menuStrip1.TabIndex = 29;
             this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.UseWaitCursor = true;
             // 
             // exitMenuItem
             // 
             this.exitMenuItem.Name = "exitMenuItem";
-            this.exitMenuItem.Size = new System.Drawing.Size(44, 26);
+            this.exitMenuItem.Size = new System.Drawing.Size(44, 23);
             this.exitMenuItem.Text = "exit";
             this.exitMenuItem.Click += new System.EventHandler(this.exitMenuItem_Click);
             // 
             // historyMenuItem
             // 
             this.historyMenuItem.Name = "historyMenuItem";
-            this.historyMenuItem.Size = new System.Drawing.Size(65, 26);
+            this.historyMenuItem.Size = new System.Drawing.Size(65, 23);
             this.historyMenuItem.Text = "history";
             this.historyMenuItem.Click += new System.EventHandler(this.historyMenuItem_Click);
             // 
             // aboutMenuItem
             // 
             this.aboutMenuItem.Name = "aboutMenuItem";
-            this.aboutMenuItem.Size = new System.Drawing.Size(59, 26);
+            this.aboutMenuItem.Size = new System.Drawing.Size(59, 23);
             this.aboutMenuItem.Text = "about";
             this.aboutMenuItem.Click += new System.EventHandler(this.aboutMenuItem_Click);
             // 
@@ -183,7 +182,6 @@
             this.textBoxOriginal.ReadOnly = true;
             this.textBoxOriginal.Size = new System.Drawing.Size(378, 23);
             this.textBoxOriginal.TabIndex = 1;
-            this.textBoxOriginal.UseWaitCursor = true;
             this.textBoxOriginal.TextChanged += new System.EventHandler(this.textBoxOriginal_TextChanged);
             // 
             // label2

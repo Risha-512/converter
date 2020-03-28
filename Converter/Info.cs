@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace Converter
 {
-    public partial class Ref : Form
+    public partial class Info : Form
     {
-        public Ref()
+        public Info()
         {
             InitializeComponent();
         }

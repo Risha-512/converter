@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Converter
+﻿namespace Converter
 {
     public class Editor
     {
@@ -17,7 +11,7 @@ namespace Converter
 
         public Editor()
         {
-            number = "0";
+            number = zero;
             startIndex = 0;
             symbolCount = 0;
         }
@@ -33,8 +27,16 @@ namespace Converter
             if (symbolCount != 0)
                 RemoveSymbolsFromPosition();
 
-            if (number == "0")
-                number = n;
+            if (number == zero)
+            {
+                if (startIndex == 0)
+                {
+                    number = n + zero;
+                    startIndex++;
+                }
+                else
+                    number = n;
+            }
             else
             {
                 number = number.Insert(startIndex, n);
@@ -54,12 +56,12 @@ namespace Converter
                 number = number.Insert(0, zero + delim);
                 startIndex = 2;
             }
-            else if (number == "0")
+            else if (number == zero)
             {
                 number = number.Insert(startIndex, delim);
                 startIndex = 2;
             }
-            else if (startIndex != 0 && number != "0")
+            else if (startIndex != 0 && number != zero)
             {
                 number = number.Insert(startIndex, zero);
                 startIndex++;
@@ -101,7 +103,7 @@ namespace Converter
 
             if (number == "")
             {
-                number += "0";
+                number += zero;
                 startIndex = 1;
             }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace Converter
 {
@@ -78,21 +79,15 @@ namespace Converter
 
         private void aboutMenuItem_Click(object sender, EventArgs e)
         {
-            new Ref().ShowDialog();
-        }
-
-        private string AppendNumberToLabel(string str, int number)
-        {
-            str = str.Remove(str.Length - (str[str.Length - 2] == '1' ? 2 : 1));
-            return str + number.ToString();
+            new Info().ShowDialog();
         }
 
         private void originalNumberSystem_Changed(object sender, EventArgs e)
         {
             control.originalBase = (sender as TrackBar).Value;
             textBoxOriginal.Text = control.EditNumber(ConverterControl.EditCommand.Clear);
-            label2.Text = AppendNumberToLabel(label2.Text, control.originalBase);
-            
+            label2.Text = "Original number system: " +  control.originalBase;
+
             EnableNumberButtons();
             textBoxOriginal.Focus();
         }
@@ -101,37 +96,30 @@ namespace Converter
         {
             control.resultBase = (sender as TrackBar).Value;
             textBoxResult.Text = "0";
-            label3.Text = AppendNumberToLabel(label3.Text, control.resultBase);
+            label3.Text = "Result number system: " + control.resultBase;
             textBoxOriginal.Focus();
         }
 
         private void EnableNumberButtons()
         {
-            int numberSystemValue = control.originalBase;
+            var numberRegex = new Regex(@"[2-9]");
+            var symbolRegex = new Regex(@"^[A-F]$");
 
-            twoBtn.Enabled = numberSystemValue > 2;
-            threeBtn.Enabled = numberSystemValue > 3;
-            fourBtn.Enabled = numberSystemValue > 4;
-            fiveBtn.Enabled = numberSystemValue > 5;
-            sixBtn.Enabled = numberSystemValue > 6;
-            sevenBtn.Enabled = numberSystemValue > 7;
-            eightBtn.Enabled = numberSystemValue > 8;
-            nineBtn.Enabled = numberSystemValue > 9;
+            foreach (Button b in tableLayoutPanel1.Controls.OfType<Button>())
+            {
+                if (numberRegex.IsMatch(b.Text))
+                    b.Enabled = control.originalBase > b.Text[0] - 48; 
 
-            ABtn.Enabled = numberSystemValue > 10;
-            BBtn.Enabled = numberSystemValue > 11;
-            CBtn.Enabled = numberSystemValue > 12;
-            DBtn.Enabled = numberSystemValue > 13;
-            EBtn.Enabled = numberSystemValue > 14;
-            FBtn.Enabled = numberSystemValue > 15;
+                else if (symbolRegex.IsMatch(b.Text))
+                    b.Enabled = control.originalBase > b.Text[0] - 55;
+            }
         }
 
         private void textBoxOriginal_TextChanged(object sender, EventArgs e)
         {
-            convertBtn.Enabled = control.editor.number != "";
-            eraseBtn.Enabled = convertBtn.Enabled;
             pointBtn.Enabled = !control.editor.number.Contains('.');
-
+            convertBtn.Enabled = textBoxOriginal.Text != "";
+            eraseBtn.Enabled = textBoxOriginal.Text != "";
             textBoxResult.Text = "0";
         }
 
